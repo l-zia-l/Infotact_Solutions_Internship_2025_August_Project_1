@@ -16,7 +16,7 @@ Infotact_Solutions_Internship_2025_August_Project_1/
 │ └─ infotact_solutions_report_project_1_nids_snort_analetizia_simono.pdf  
 ├─ snort/  
 │ └─ local.rules  
-└─ └─ snort.conf.txt  
+└─   snort.conf.txt  
 
 ## Executive summary
 This project implements and validates a custom Snort rule to detect SSH brute-force attempts in an isolated VM lab (Ubuntu Server victim, Kali attacker). The rule alerts when a single source IP makes **5 SSH connection attempts within 60 seconds**. Hydra-driven testing triggered timely, actionable alerts, demonstrating a measurable reduction in mean-time-to-detect for this attack class. See `report/infotact_solutions_report_project_1_nids_snort_analetizia_simono.pdf` for full evidence and timestamps.
