@@ -7,13 +7,13 @@ Infotact_Solutions_Internship_2025_August_Project_1/
 ├─ LICENSE (MIT)  
 ├─ demo/  
 │ └─ future_demo_link.txt  
+│ └─ network_diagram.png  
 ├─ lab-setup/  
-│ └─ infotact_solutions_report_project_1_nids_snort_analetizia_simono.pdf  
+│ └─ VM_setup_guide.md  
 ├─ password-list/  
 │ └─ password_list.txt  
 ├─ report/  
-│ └─ VM_setup_guide.md  
-│ └─ network_diagram.png  
+│ └─ infotact_solutions_report_project_1_nids_snort_analetizia_simono.pdf  
 ├─ snort/  
 │ └─ local.rules  
 └─ └─ snort.conf.txt  
@@ -30,36 +30,7 @@ git clone https://github.com/<you>/Infotact_Solutions_Internship_2025_August_Pro
 cd Infotact_Solutions_Internship_2025_August_Project_1
 ```
 
-2. Victim (Ubuntu) — install &amp; verify:
-```
-sudo apt update && sudo apt install -y snort openssh-server
-sudo systemctl status ssh
-ip a            # note interface (e.g., enp0s3)
-```
-
-3. Install rule:
-```
-# copy repository's local.rules to Snort rules directory
-sudo cp snort/local.rules /etc/snort/rules/local.rules
-# ensure /etc/snort/snort.conf includes: include $RULE_PATH/local.rules
-```
-
-4. Start Snort (replace interface):
-```
-sudo snort -A console -q -c /etc/snort/snort.conf -i enp0s3
-```
-
-5. Attacker (Kali) — run Hydra (replace <VM_IP>):
-```
-hydra -l non_existent_user -P scripts/pass.txt ssh://<VM_IP>
-```
-
-6. Observe alerts in Snort console or /var/log/snort/alert.
-
-## Rule (snort/local.rules)
-```
-alert tcp any any -> $HOME_NET 22 (msg:"SSH Brute-Force Attempt Detected"; flow:to_server,established; detection_filter:track by_src, count 5, seconds 60; sid:1000002; rev:1;)
-```
+Follow the `lab-setup/VM_setup_guide.md` document.
 
 ## Evidence &amp; Artifacts
 - infotact_solutions_report_project_1_nids_snort_analetizia_simono.pdf - full write-up with screenshots and timestamps
