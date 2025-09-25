@@ -67,12 +67,12 @@ alert tcp any any -> $HOME_NET 22 (msg:"SSH Brute-Force Attempt Detected"; flow:
 
 ## Troubleshooting Notes (quick)
 - After editing rules, restart Snort to apply changes
-- Use 'tmux' to run Snort in one pane and commands/tests in another
+- Use `tmux` to run Snort in one pane and commands/tests in another
 - Take screenshots before starting Snort console to preserve scroll state
 
 ## Ethics &amp; Scope
 All testing was performed on isolated VMs owned by the project owner. No public or unauthorized systems were targeted.
 
 ## License &amp; Contact
-MIT License - see 'LICENSE (MIT)'
+MIT License - see `LICENSE (MIT)`
 Analetizia Simono - Security Associate L1 (Intern), Infotact Solutions - https://www.linkedin.com/in/analetizia-simono-18b551346/
